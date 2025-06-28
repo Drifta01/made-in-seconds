@@ -24,36 +24,19 @@ export default function Header() {
   ];
 
   return (
-    <header className="relative w-full bg-white dark:bg-gray-900 shadow-sm border-b-4 border-gray-100 dark:border-gray-800">
+    <header className="relative w-full bg-black shadow-sm border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-30 lg:h-15">
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 flex-grow justify-center">
-            <div className="flex-shrink-0 mr-4">
-              <Image
-                src="/mislogo.jpg"
-                alt="Made in Seconds Logo"
-                width={140}
-                height={28}
-                className="dark:invert transition-opacity hover:opacity-90"
-              />
-            </div>
-            <div className="hidden md:flex items-center space-x-4">
-              <Link
-                href="/contact"
-                className="bg-slate-600 hover:bg-slate-900 text-white font-semibold py-2 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg"
-              >
-                Get Started
-              </Link>
-            </div>
             {navigationItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-200 relative group"
+                className="text-white hover:text-gray-300 font-medium transition-colors duration-200 relative group"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-200 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-200 group-hover:w-full"></span>
               </Link>
             ))}
           </nav>
@@ -63,7 +46,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <div className="md:hidden relative">
             <button
-              className="rounded-lg p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+              className="rounded-lg p-2 text-white hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-black"
               onClick={toggleMenu}
               aria-expanded={isOpen}
               aria-label="Toggle navigation menu"

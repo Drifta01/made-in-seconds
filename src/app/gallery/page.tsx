@@ -179,13 +179,13 @@ export default function Gallery() {
                     <div className="absolute inset-0 grid grid-cols-2">
                       <div className="relative">
                         <Image src={item.before} alt={`${item.title} - Before`} fill className="object-cover" />
-                        <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-xs font-semibold">
+                        <div className="absolute top-3 left-3 bg-red-500 bg-opacity-95 text-white px-2 py-1 rounded-md text-xs font-bold shadow-lg border border-white">
                           BEFORE
                         </div>
                       </div>
                       <div className="relative">
                         <Image src={item.after} alt={`${item.title} - After`} fill className="object-cover" />
-                        <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-xs font-semibold">
+                        <div className="absolute top-3 right-3 bg-green-500 bg-opacity-95 text-white px-2 py-1 rounded-md text-xs font-bold shadow-lg border border-white">
                           AFTER
                         </div>
                       </div>
@@ -267,9 +267,9 @@ export default function Gallery() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded font-semibold">
+                  {/* <div className="absolute top-4 left-4 bg-red-500 bg-opacity-95 text-white px-3 py-2 rounded-lg font-bold text-base shadow-lg border-2 border-white">
                     BEFORE
-                  </div>
+                  </div> */}
                 </div>
                 <div className="relative h-96 md:h-auto">
                   <Image
@@ -278,13 +278,13 @@ export default function Gallery() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded font-semibold">
+                  {/* <div className="absolute top-4 right-4 bg-green-500 bg-opacity-95 text-white px-3 py-2 rounded-lg font-bold text-base shadow-lg border-2 border-white">
                     AFTER
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
-              <div className="p-6">
+              <div className="p-4">
                 <p className="text-gray-600 dark:text-gray-300 mb-4">{selectedImage.description}</p>
 
                 <div className="flex flex-wrap gap-2 mb-6">
