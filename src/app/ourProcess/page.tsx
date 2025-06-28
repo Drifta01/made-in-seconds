@@ -179,7 +179,7 @@ export default function OurProcess() {
               View Gallery
             </Link>
             <Link
-              href="/#contact"
+              href="/contact"
               className="border-2 border-white hover:bg-white hover:text-black text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200"
             >
               Get Started

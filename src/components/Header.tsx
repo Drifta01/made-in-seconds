@@ -2,10 +2,15 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -75,27 +80,42 @@ export default function Header() {
             </button>
 
             {/* Mobile menu dropdown */}
-            {isOpen && (
+            {isMounted && isOpen && (
               <>
                 {/* Backdrop */}
-                <div className="fixed inset-0 bg-black bg-opacity-25 z-40" onClick={closeMenu}></div>
+                <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={closeMenu}></div>
 
                 {/* Menu */}
-                <div className="absolute right-0 mt-2 w-64 rounded-xl shadow-lg bg-white dark:bg-gray-800 ring-1 ring-gray-200 dark:ring-gray-700 z-50 transform transition-all duration-200 origin-top-right">
-                  <div className="py-2">
-                    {navigationItems.map((item, index) => (
+                <div className="fixed top-16 right-4 w-72 max-w-[calc(100vw-2rem)] rounded-xl shadow-2xl bg-white border border-gray-200 z-50 transform transition-all duration-200">
+                  <div className="py-3">
+                    {/* Mobile Menu Header */}
+                    <div className="px-6 py-4 border-b border-gray-200">
+                      <div className="flex items-center gap-3">
+                        <Image
+                          src="/made-in-seconds.png"
+                          alt="Made in Seconds Logo"
+                          width={32}
+                          height={32}
+                          className="w-8 h-8"
+                        />
+                        <span className="text-xl font-bold text-gray-900">Made in Seconds</span>
+                      </div>
+                    </div>
+
+                    {/* Navigation Items */}
+                    {navigationItems.map((item) => (
                       <Link
                         key={item.name}
                         href={item.href}
                         onClick={closeMenu}
-                        className="block px-6 py-3 text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                        className="block px-6 py-4 text-lg font-medium text-gray-900 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
                       >
                         {item.name}
                       </Link>
                     ))}
 
                     {/* Mobile CTA */}
-                    {/* <div className="border-t border-gray-200 dark:border-gray-700 mt-2 pt-2 px-6 pb-3">
+                    <div className="border-t border-gray-200 mt-2 pt-4 px-6 pb-4">
                       <Link
                         href="/contact"
                         onClick={closeMenu}
@@ -103,7 +123,7 @@ export default function Header() {
                       >
                         Get Started
                       </Link>
-                    </div> */}
+                    </div>
                   </div>
                 </div>
               </>
